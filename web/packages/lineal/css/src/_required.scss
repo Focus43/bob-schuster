@@ -1,0 +1,92 @@
+@import 'compass';
+
+// Paths
+$icomoon-font-path:             '/packages/lineal/fonts/icomoon/';
+$image-path:                    '/packages/lineal/images/';
+
+$nav-sidebar-width:             320px;
+$sidebar-animate-time:          0.15s;
+$mask-animate-time:             0.3s;
+
+// Coolors Exported palette
+$color1:                        #191d32;
+$color2:                        #282f44;
+$color3:                        #453a49;
+$color4:                        #6d3b47;
+$color5:                        #cad2c5;
+//@import 'palettes/1';
+$palette-color-1:               $color1;
+$palette-color-2:               $color2;
+$palette-color-3:               $color3;
+$palette-color-4:               $color4;
+$palette-color-5:               $color5;
+$palette-list:                  $palette-color-1, $palette-color-2, $palette-color-3, $palette-color-4, $palette-color-5;
+
+// Fonts
+$font-family-roboto-slab:       'Roboto Slab', serif;
+$font-family-baskerville:       'Libre Baskerville', $font-family-roboto-slab;
+
+// Bootstrap
+$brand-primary:                 $color4;
+$brand-success:                 $color5;
+$brand-info:                    $color2;
+$brand-warning:                 lighten($color4, 6%);
+$brand-danger:                  lighten($color4, 12%);
+
+$link-color:                    $palette-color-4;
+$link-hover-decoration:         none;
+
+$font-family-serif:             $font-family-roboto-slab;
+$font-family-base:              $font-family-serif;
+$headings-font-family:          $font-family-serif;
+$font-size-base:                17px;
+
+$border-radius-base:            0;
+$border-radius-large:           0;
+$border-radius-small:           0;
+
+// Buttons
+$btn-font-weight:               bold;
+$btn-default-border:            transparent;
+$btn-primary-border:            transparent;
+$btn-success-border:            transparent;
+  $btn-success-color:           darken($brand-success, 40%);
+$btn-info-border:               transparent;
+$btn-warning-border:            transparent;
+$btn-danger-border:             transparent;
+
+// Bootstrap/FontAwesome Variables
+@import '../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables';
+@import '../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins';
+
+@mixin scrollbars($color, $size:6px){
+  ::-webkit-scrollbar {width:$size;height:$size;}
+  ::-webkit-scrollbar-button {display:none;visibility:hidden;}
+  ::-webkit-scrollbar-track {background:lighten($color,20%);//@include border-radius($width);
+    &:hover {background:lighten($color,25%);}
+  }
+  ::-webkit-scrollbar-thumb {background:$color;//@include border-radius($width);
+    &:hover {background:lighten($color,5%);}
+  }
+}
+
+@mixin scrollOverflow {
+  overflow-x:hidden;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+@mixin truncateText {
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+@mixin unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<concrete5-cif version="1.0">
+    <themes>
+        <theme handle="lineal" package="lineal" activated="1" />
+    </themes>
+
+    <pagetemplates>
+        <pagetemplate handle="default" name="Default" icon="full.png" package="lineal" />
+        <pagetemplate handle="home" name="Home" icon="full.png" package="lineal" />
+    </pagetemplates>
+
+    <pagetypes>
+        <pagetype name="Basic" handle="basic" launch-in-composer="0" package="lineal" is-frequently-added="1">
+            <pagetemplates type="all" default="default">
+                <pagetemplate handle="default" package="lineal" />
+            </pagetemplates>
+            <target handle="all" package="lineal" />
+            <composer>
+                <formlayout>
+                    <set name="Basics">
+                        <control custom-template="" required="1" custom-label="Page Name" type="core_page_property" handle="name" />
+                        <control custom-template="" custom-label="Description" type="core_page_property" handle="description"/>
+                        <control custom-template="" custom-label="Publish Target" type="core_page_property" handle="publish_target" />
+                    </set>
+                </formlayout>
+            </composer>
+        </pagetype>
+    </pagetypes>
+</concrete5-cif>

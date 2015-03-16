@@ -1,0 +1,12 @@
+.pg-home {
+  main {
+    .slants {overflow-x:hidden;}
+  }
+}
+
+@media screen and (min-width:$screen-md){
+  .pg-home main .slants .row {margin-left:-($grid-gutter-width);margin-right:-($grid-gutter-width);@include display-flex;@include flex-direction(row);
+    [class*="col"]{@include flex(1);@include transform(skewX(-3deg));margin:0 -2px;}
+    .box-pad {padding:2rem;margin:0 ($grid-gutter-width);@include transform(skewX(3deg));}
+  }
+}

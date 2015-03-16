@@ -1,0 +1,14 @@
+// Defaults from theme
+@import '../../css/src/required';
+// Overrides; specifically for the editor
+$font-size-base: 14px;
+// Bootstrap includes
+@import '../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/scaffolding';
+@import '../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/normalize';
+@import '../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/type';
+@import '../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/buttons';
+
+body {padding:10px;}
+
+/* Custom classes */
+.btn-red {@extend .btn;@extend .btn-danger;}

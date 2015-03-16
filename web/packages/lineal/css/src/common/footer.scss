@@ -1,0 +1,27 @@
+footer {text-align:center;color:#fff;font-size:0.875rem;padding:2rem 1rem;background:$palette-color-1;
+  .container-fluid {max-width:$container-lg;}
+  .box-pad {border-top:3px solid transparent;
+    &.border-1 {border-top-color:$palette-color-1;}
+    &.border-2 {border-top-color:$palette-color-2;}
+    &.border-3 {border-top-color:$palette-color-3;}
+    &.border-4 {border-top-color:$palette-color-4;}
+    &.border-5 {border-top-color:$palette-color-5;}
+    &.translucent {background:rgba(255,255,255,0.08);
+      p {color:$palette-color-5;margin:0;}
+    }
+  }
+  .schuster-logo {color:#fff;}
+  address {margin-bottom:0;}
+  h4 {margin-top:0;}
+  .badges img {padding:5px;max-width:90px;}
+
+  .memberships a {color:$gray-lighter !important;}
+}
+
+@media screen and (min-width:$screen-sm){
+  footer {text-align:left;}
+}
+
+@media screen and (min-width:$screen-md){
+  footer {padding:2rem 2rem 0 2rem;}
+}
