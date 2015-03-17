@@ -53,8 +53,8 @@
             $pageController->addHeaderItem( $this->getHelper('helper/html')->css('app.css', PackageController::PACKAGE_HANDLE) );
             // JS
             //$pageController->addFooterItem('<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=' . LinealPackage::GOOGLE_MAPS_API_KEY . '"></script>');
-            $pageController->addFooterItem( $this->getHelper('helper/html')->javascript('core.js', PackageController::PACKAGE_HANDLE) );
-            $pageController->addFooterItem( $this->getHelper('helper/html')->javascript('app.js', PackageController::PACKAGE_HANDLE) );
+            //$pageController->addFooterItem( $this->getHelper('helper/html')->javascript('core.js', PackageController::PACKAGE_HANDLE) );
+            //$pageController->addFooterItem( $this->getHelper('helper/html')->javascript('app.js', PackageController::PACKAGE_HANDLE) );
         }
 
 

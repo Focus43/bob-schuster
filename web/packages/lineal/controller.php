@@ -37,8 +37,8 @@
 
 
         protected $pkgHandle 			= self::PACKAGE_HANDLE;
-        protected $appVersionRequired 	= '5.7';
-        protected $pkgVersion 			= '0.03';
+        protected $appVersionRequired 	= '5.7.3.2';
+        protected $pkgVersion 			= '0.04';
 
 
         /**
@@ -120,6 +120,7 @@
                 ->setupTemplates()
                 ->setupPageTypes()
                 ->assignPageTypes()
+                ->setupBlockTypeSets()
                 ->setupBlocks();
         }
 
@@ -296,7 +297,23 @@
         /**
          * @return Controller
          */
+        private function setupBlockTypeSets(){
+            if( !is_object(BlockTypeSet::getByHandle(self::PACKAGE_HANDLE)) ){
+                BlockTypeSet::add(self::PACKAGE_HANDLE, self::PACKAGE_HANDLE, $this->packageObject());
+            }
+
+            return $this;
+        }
+
+
+        /**
+         * @return Controller
+         */
         private function setupBlocks(){
+            if(!is_object(BlockType::getByHandle('button'))) {
+                BlockType::installBlockTypeFromPackage('button', $this->packageObject());
+            }
+
             return $this;
         }
 
