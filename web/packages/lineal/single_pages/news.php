@@ -12,7 +12,7 @@
                     <a class="news-post" href="<?php echo $url; ?>">
                         <h4><?php echo $title; ?></h4>
                         <span class="date"><?php echo $date; ?></span>
-                        <p class="descr"><?php echo $description; ?></p>
+                        <p class="descr"><?php echo $descr; ?></p>
                     </a>
                 <?php } ?>
             </div>
