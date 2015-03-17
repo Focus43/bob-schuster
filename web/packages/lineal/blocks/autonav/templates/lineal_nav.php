@@ -1,5 +1,6 @@
 <? defined('C5_EXECUTE') or die("Access Denied.");
 
+$textHelper = Loader::helper('text');
 $navItems = $controller->getNavItems();
 
 /**
@@ -52,6 +53,8 @@ $navItems = $controller->getNavItems();
 /*** STEP 1 of 2: Determine all CSS classes (only 2 are enabled by default, but you can un-comment other ones or add your own) ***/
 foreach ($navItems as $ni) {
     $classes = array();
+
+    array_push($classes, $textHelper->handle($ni->name));
 
     if ($ni->isCurrent) {
         //class for the page currently being viewed
@@ -106,24 +109,15 @@ foreach ($navItems as $ni) {
     //Put all classes together into one space-separated string
     $ni->classes = implode(" ", $classes);
 }
-
-
-//*** Step 2 of 2: Output menu HTML ***/
-
-echo '<ul class="majority">'; //opens the top-level menu
-
-foreach ($navItems as $ni) {
-
-    echo '<li class="' . $ni->classes . '">'; //opens a nav item
-
-    echo '<a href="' . $ni->url . '" target="' . $ni->target . '" class="' . $ni->classes . '">' . $ni->name . '</a>';
-
-    if ($ni->hasSubmenu) {
-        echo '<ul class="sub">'; //opens a dropdown sub-menu
-    } else {
-        echo '</li>'; //closes a nav item
-        echo str_repeat('</ul></li>', $ni->subDepth); //closes dropdown sub-menu(s) and their top-level nav item(s)
-    }
-}
-
-echo '</ul>'; //closes the top-level menu
+?>
+<ul class="majority">
+    <?php foreach($navItems AS $ni): ?>
+        <li class="<?php echo $ni->classes; ?>">
+            <a href="<?php echo $ni->url; ?>" target="<?php echo $ni->target; ?>" class="<?php echo $ni->classes; ?>"><?php echo $ni->name; ?></a>
+            <?php if($ni->hasSubmenu){ ?>
+                <ul class="sub">
+            <?php }else{ ?>
+                </li>
+            <?php echo str_repeat('</ul></li>', $ni->subDepth); } ?>
+    <?php endforeach; ?>
+</ul>

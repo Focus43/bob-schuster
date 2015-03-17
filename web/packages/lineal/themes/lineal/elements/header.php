@@ -9,7 +9,7 @@
                         <div class="tabular">
                             <div class="cellular">
                                 <h1><?php echo $stdObj->descr;//$stdObj->fileObj->getDescription(); ?></h1>
-                                <a class="btn btn-custom-1 btn-lg">Learn More</a>
+                                <a class="btn btn-translucent btn-lg">Learn More</a>
                             </div>
                         </div>
                     </figure>
