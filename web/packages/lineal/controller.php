@@ -39,7 +39,7 @@
 
         protected $pkgHandle 			= self::PACKAGE_HANDLE;
         protected $appVersionRequired 	= '5.7.3.2';
-        protected $pkgVersion 			= '0.06';
+        protected $pkgVersion 			= '0.08';
 
 
         /**
@@ -207,16 +207,20 @@
          * @return Controller
          */
         private function setupTemplates(){
-            if( ! PageTemplate::getByHandle('default') ){
-                PageTemplate::add('default', t('Default'), 'full.png', $this->packageObject());
-            }
-
             if( ! PageTemplate::getByHandle('home') ){
                 PageTemplate::add('home', t('Home'), 'full.png', $this->packageObject());
             }
 
+            if( ! PageTemplate::getByHandle('default') ){
+                PageTemplate::add('default', t('Default'), 'full.png', $this->packageObject());
+            }
+
             if( ! PageTemplate::getByHandle('two_column') ){
                 PageTemplate::add('two_column', t('Two Column'), 'full.png', $this->packageObject());
+            }
+
+            if( ! PageTemplate::getByHandle('news_post') ){
+                PageTemplate::add('news_post', t('News Post'), 'full.png', $this->packageObject());
             }
 
             if( is_object(PageTemplate::getByHandle('full')) ){

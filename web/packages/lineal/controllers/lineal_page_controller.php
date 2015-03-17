@@ -34,6 +34,7 @@
             )));
 
             $this->set('templateHandle', sprintf('pg-%s', $this->getPageObject()->getPageTemplateHandle()));
+            $this->set('mastheadHelper', new \Concrete\Package\Lineal\Src\Helpers\Masthead($this->getPageObject()));
         }
 
 
@@ -55,41 +56,6 @@
             //$pageController->addFooterItem('<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=' . LinealPackage::GOOGLE_MAPS_API_KEY . '"></script>');
             $pageController->addFooterItem( $this->getHelper('helper/html')->javascript('core.js', PackageController::PACKAGE_HANDLE) );
             $pageController->addFooterItem( $this->getHelper('helper/html')->javascript('app.js', PackageController::PACKAGE_HANDLE) );
-        }
-
-
-        /**
-         * If the page background attribute is set explicitly on the page, that
-         * takes precedence. Otherwise, look for and return a randomized image from
-         * the Page Backgrounds set.
-         * @return string || void
-         */
-        protected function getPageHeaderImageURL(){
-            // Use a specifically-assigned header image
-//            $fileObj = $this->getPageObject()->getAttribute('header_background');
-//            if( $fileObj instanceof File ){
-//                return $this->getHelper('helper/image')->setJpegCompression(PackageController::FULLSCREEN_IMG_COMPRESSION)->getThumbnail($fileObj, PackageController::FULLSCREEN_IMG_WIDTH, PackageController::FULLSCREEN_IMG_HEIGHT)->src;
-//            }
-//
-//            /** @var $fileSetObj \Concrete\Core\File\Set\Set */
-//            $fileSetObj = FileSet::getByName(PackageController::FILESET_HEADER_BACKGROUNDS);
-//            $filesInSet = $fileSetObj->getFiles();
-//            if( ! empty($filesInSet) ){
-//                $fileObj = $filesInSet[array_rand($filesInSet, 1)];
-//                if( $fileObj instanceof File ){
-//                    return $this->getHelper('helper/image')->setJpegCompression(PackageController::FULLSCREEN_IMG_COMPRESSION)->getThumbnail($fileObj, PackageController::FULLSCREEN_IMG_WIDTH, PackageController::FULLSCREEN_IMG_HEIGHT)->src;
-//                }
-//            }
-//            $fileListObj = new FileList;
-//            $fileListObj->setPermissionLevel('view_file_set_file');
-//            $fileListObj->filterBySet( FileSet::getByName(LinealPackage::FILESET_HEADER_BACKGROUNDS) );
-//            $imagesList = $fileListObj->get();
-//            if( !empty($imagesList) ){
-//                $imageObj = $imagesList[ array_rand($imagesList, 1) ];
-//                if( $imageObj instanceof File ){
-//                    return $this->getHelper('image')->setJpegCompression(LinealPackage::FULLSCREEN_IMG_COMPRESSION)->getThumbnail($imageObj, LinealPackage::FULLSCREEN_IMG_WIDTH, LinealPackage::FULLSCREEN_IMG_HEIGHT)->src;
-//                }
-//            }
         }
 
 

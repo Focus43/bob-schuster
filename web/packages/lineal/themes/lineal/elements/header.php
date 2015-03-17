@@ -27,9 +27,22 @@
         </a>
 
         <?php if(! $masthead ): ?>
-            <div class="page-title" style="background-image:url(<?php echo $mastheadHelper->getSingleImageSrc(); ?>);">
+            <div class="page-title" style="background-image:url(<?php if(is_object($mastheadHelper)){ echo $mastheadHelper->getSingleImageSrc(); } ?>);">
                 <h1><?php echo Page::getCurrentPage()->getCollectionName(); ?></h1>
+                <?php if( !($hideDescription === true) ): ?>
                 <p><?php echo \Core::make('helper/text')->shorten(Page::getCurrentPage()->getCollectionDescription(), 90); ?></p>
+                <?php endif; ?>
+                <?php if( $showDateAndTags === true ): ?>
+                    <div class="date-and-tags">
+                        <span class="date">Published <strong><?php echo \Core::make('helper/date')->formatDate(Page::getCurrentPage()->getCollectionDatePublic(), true); ?></strong> in </span>
+                        <?php
+                            $bt = BlockType::getByHandle('tags');
+                            $bt->controller->displayMode = 'page';
+                            $bt->controller->targetCID = Page::getByPath('/news')->getCollectionID();
+                            $bt->render('templates/custom');
+                        ?>
+                    </div>
+                <?php endif; ?>
             </div>
         <?php endif; ?>
     </div>

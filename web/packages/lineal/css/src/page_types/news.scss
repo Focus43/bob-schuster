@@ -1,3 +1,4 @@
+// News Single Page
 .pg-news {
   .news-post {position:relative;color:$gray-light;display:block;padding:1rem;background:$gray-lighter;border:1px solid #ddd;border-top:0;border-left:0;@include transition(all 0.35s ease);
     h4 {color:$palette-color-3;margin:-1rem -1rem 1rem;padding:1rem;background:darken($gray-lighter, 5%);text-transform:capitalize;@include transition(all 0.35s ease);}
@@ -20,6 +21,17 @@
             &.active span {background-color:$link-color;border-color:$link-color;color:$palette-color-5;}
           }
         }
+      }
+    }
+  }
+}
+
+// News Template
+.pg-news_post {
+  header {
+    .date-and-tags {font-size:1rem;line-height:1;
+      .tag {color:#fff;font-size:14px;display:inline-block;padding:5px 14px;background:rgba(255,255,255,0.25);@include border-radius(20px);
+        &:hover {background:#fff;color:$link-color;}
       }
     }
   }
