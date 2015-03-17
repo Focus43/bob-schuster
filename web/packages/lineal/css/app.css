@@ -607,6 +607,12 @@ footer {
   footer .badges img {
     padding: 5px;
     max-width: 90px; }
+  footer .recent-news-item {
+    display: block;
+    color: #cad2c5; }
+    footer .recent-news-item span {
+      display: block;
+      padding-bottom: 0.5rem; }
   footer .memberships a {
     color: #eeeeee !important; }
 

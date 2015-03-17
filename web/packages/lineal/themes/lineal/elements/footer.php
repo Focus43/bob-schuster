@@ -27,8 +27,20 @@
             <div class="col-sm-6 col-md-3">
                 <div class="box-pad border-2">
                     <h4>Recent News</h4>
-                    <p>Lorem ipsum dolor sit amet consect et tetur lorem ispum dolor...</p>
-                    <a class="btn btn-xs btn-custom-1">Read More</a>
+                    <?php
+                        $pageListObj = new \Concrete\Core\Page\PageList();
+                        $pageListObj->disableAutomaticSorting();
+                        $pageListObj->sortByPublicDate();
+                        $pageListObj->filterByPageTypeID( PageType::getByHandle('news')->getPageTypeID() );
+                        $pageListObj->setItemsPerPage(1);
+                        $paginationObj = $pageListObj->getPagination();
+                        $resultSet     = $paginationObj->getCurrentPageResults();
+                        if( !empty($resultSet) ){ ?>
+                            <a class="recent-news-item" href="<?php echo View::url($resultSet[0]->getCollectionPath()); ?>">
+                                <span><?php echo Loader::helper('text')->wordSafeShortText($resultSet[0]->getCollectionName(), 75); ?></span>
+                                <button type="button" class="btn btn-xs btn-translucent">Read More</button>
+                            </a>
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
