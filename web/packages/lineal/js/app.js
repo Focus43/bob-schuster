@@ -188,6 +188,16 @@ angular.module('lineal.base').
             link:       _link
         };
     }]);
+angular.module('lineal.base').
+
+    controller('CtrlDocument', ['$window', 'FastClick',
+        function( $window, FastClick ){
+
+            // Initialize FastClick handler
+            FastClick.attach(document.body);
+
+        }
+    ]);
 /* global Modernizr */
 /* global FastClick */
 angular.module('lineal.base').
@@ -233,13 +243,3 @@ angular.module('lineal.base').
             }
         ];
     });
-angular.module('lineal.base').
-
-    controller('CtrlDocument', ['$window', 'FastClick',
-        function( $window, FastClick ){
-
-            // Initialize FastClick handler
-            FastClick.attach(document.body);
-
-        }
-    ]);

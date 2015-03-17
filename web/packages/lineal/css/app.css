@@ -418,7 +418,9 @@ header {
     padding: 7rem 3rem;
     font-size: 1.7rem;
     color: #eeeeee;
-    background: #6d3b47; }
+    background: #6d3b47;
+    background-size: cover;
+    background-position: 50% 25%; }
     header .page-title h1 {
       font-size: 180%;
       text-transform: uppercase; }

@@ -27,7 +27,7 @@
         </a>
 
         <?php if(! $masthead ): ?>
-            <div class="page-title" style="background-size:cover;background-position:50% 50%;background-image:url(<?php echo $mastheadHelper->getSingleImageSrc(); ?>);">
+            <div class="page-title" style="background-image:url(<?php echo $mastheadHelper->getSingleImageSrc(); ?>);">
                 <h1><?php echo Page::getCurrentPage()->getCollectionName(); ?></h1>
                 <p><?php echo Page::getCurrentPage()->getCollectionDescription(); ?></p>
             </div>
