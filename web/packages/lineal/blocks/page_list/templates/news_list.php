@@ -26,12 +26,13 @@ if ( $c->isEditMode() && $controller->isBlockEmpty()) { ?>
                 $description = $page->getCollectionDescription();
                 $description = $controller->truncateSummaries ? $th->wordSafeShortText($description, $controller->truncateChars) : $description;
                 $description = $th->entities($description);
-                $date = $dh->formatDateTime($page->getCollectionDatePublic(), true);
+                $date = $dh->formatDate($page->getCollectionDatePublic(), false);
                 $url = $nh->getLinkToCollection($page);
             ?>
                 <a class="news-post" href="<?php echo $url; ?>">
                     <h4><?php echo $title; ?></h4>
-                    <span class="description"><?php echo $description; ?></span>
+                    <span class="date"><?php echo $date; ?></span>
+                    <p class="descr"><?php echo $description; ?></p>
                 </a>
             <?php } ?>
         </div>

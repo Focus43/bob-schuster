@@ -18,7 +18,7 @@ class Controller extends \Concrete\Core\Block\BlockController {
 
     protected $btTable 									= 'btButton';
     protected $btInterfaceWidth 						= '350';
-    protected $btInterfaceHeight						= '300';
+    protected $btInterfaceHeight						= '370';
     protected $btDefaultSet                             = 'lineal';
     protected $btCacheBlockRecord 						= true;
     protected $btCacheBlockOutput 						= true;

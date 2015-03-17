@@ -17,6 +17,7 @@
     use FileAttributeKey; /** @see \Concrete\Core\Attribute\Key\FileKey */
     use Group; /** @see \Concrete\Core\User\Group\Group */
     use GroupSet; /** @see \Concrete\Core\User\Group\GroupSet */
+    use SinglePage; /** @see \Concrete\Core\Page\Single */
     use Concrete\Core\Page\Type\PublishTarget\Type\Type as PublishTargetType;
     //use Concrete\Core\Backup\ContentImporter;
 
@@ -38,7 +39,7 @@
 
         protected $pkgHandle 			= self::PACKAGE_HANDLE;
         protected $appVersionRequired 	= '5.7.3.2';
-        protected $pkgVersion 			= '0.04';
+        protected $pkgVersion 			= '0.05';
 
 
         /**
@@ -120,6 +121,7 @@
                 ->setupTemplates()
                 ->setupPageTypes()
                 ->assignPageTypes()
+                ->setupSinglePages()
                 ->setupBlockTypeSets()
                 ->setupBlocks();
         }
@@ -289,6 +291,16 @@
                 'pTemplateID' => PageTemplate::getByHandle('home')->getPageTemplateID()
             ));
             $homePageCollection->setPageType(PageType::getByHandle('page'));
+
+            return $this;
+        }
+
+
+        /**
+         * @return Controller
+         */
+        private function setupSinglePages(){
+            $newsPage = SinglePage::add('/news', $this->packageObject());
 
             return $this;
         }

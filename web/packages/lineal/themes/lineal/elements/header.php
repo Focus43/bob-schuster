@@ -29,7 +29,7 @@
         <?php if(! $masthead ): ?>
             <div class="page-title" style="background-image:url(<?php echo $mastheadHelper->getSingleImageSrc(); ?>);">
                 <h1><?php echo Page::getCurrentPage()->getCollectionName(); ?></h1>
-                <p><?php echo Page::getCurrentPage()->getCollectionDescription(); ?></p>
+                <p><?php echo \Core::make('helper/text')->shorten(Page::getCurrentPage()->getCollectionDescription(), 90); ?></p>
             </div>
         <?php endif; ?>
     </div>
