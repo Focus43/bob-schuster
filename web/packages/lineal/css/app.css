@@ -569,9 +569,6 @@ html.touch.sidebar-nav body {
   overflow: hidden !important; }
 
 /***** TEMPORARY HACK TO HIDE ALL CHILD NEWS ITEMS *******/
-#c-level-1 header nav .majority li.news ul.sub {
-  display: none !important; }
-
 main section {
   padding: 4rem 0;
   background: #fff; }

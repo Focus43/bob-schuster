@@ -3,6 +3,7 @@
 
     use Loader;
     use PageList;
+    use PageType;
 
     class News extends \Concrete\Package\Lineal\Controller\LinealPageController {
 
@@ -73,7 +74,8 @@
                 $this->_pageListObj = new PageList();
                 $this->_pageListObj->disableAutomaticSorting();
                 $this->_pageListObj->sortByPublicDate();
-                $this->_pageListObj->filterByParentID( $this->getPageObject()->getCollectionID() );
+                $this->_pageListObj->filterByPath( $this->getPageObject()->getCollectionPath() );
+                $this->_pageListObj->filterByPageTypeID( PageType::getByHandle('news')->getPageTypeID() );
                 $this->_pageListObj->setItemsPerPage(self::PAGINATION);
 
             }
