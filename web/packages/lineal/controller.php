@@ -39,7 +39,7 @@
 
         protected $pkgHandle 			= self::PACKAGE_HANDLE;
         protected $appVersionRequired 	= '5.7.3.2';
-        protected $pkgVersion 			= '0.13';
+        protected $pkgVersion 			= '0.16';
 
 
         /**
@@ -113,7 +113,6 @@
          * @return void
          */
         private function installAndUpdate(){
-            $this->setupPageTypes();return;
             $this->setupFileSets()
                 ->setupAttributeTypes()
                 ->setupCollectionAttributes()
@@ -381,14 +380,14 @@
             $settings = (object) $settings;
 
             // Get the page type if it exists previously
-            $pageType = PageType::getByHandle($settings->handle);
+            $pageType = PageType::getByHandle($settings->configs['handle']);
 
             // Delete it? Only works if the $pageType isn't assigned to this package already
             if( is_object($pageType) && !((int)$pageType->getPackageID() >= 1) ){
                 $pageType->delete();
             }
 
-            if( !is_object(PageType::getByHandle($settings->handle)) ){
+            if( !is_object(PageType::getByHandle($settings->configs['handle'])) ){
                 /** @var $ptPage \Concrete\Core\Page\Type\Type */
                 $ptPage = PageType::add(array_merge(array(
                     'ptIsFrequentlyAdded'   => 1,
