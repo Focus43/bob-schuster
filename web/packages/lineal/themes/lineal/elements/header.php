@@ -9,7 +9,7 @@
                         <div class="tabular">
                             <div class="cellular">
                                 <h1><?php echo $stdObj->descr;//$stdObj->fileObj->getDescription(); ?></h1>
-                                <a class="btn btn-translucent btn-lg">Learn More</a>
+<!--                                <a class="btn btn-translucent btn-lg">Learn More</a>-->
                             </div>
                         </div>
                     </figure>
@@ -26,23 +26,27 @@
             <span>Robert P.</span><span>Schuster<b>P.C.</b></span><span>Attorneys At Law</span>
         </a>
 
-        <?php if(! $masthead ): ?>
+        <?php
+        $hideHeaderTitle = (bool) Page::getCurrentPage()->getAttribute('header_title');
+        if( !$masthead && ($hideHeaderTitle !== true) ): ?>
             <div class="page-title" style="background-image:url(<?php if(is_object($mastheadHelper)){ echo $mastheadHelper->getSingleImageSrc(); } ?>);">
-                <h1><?php echo Page::getCurrentPage()->getCollectionName(); ?></h1>
-                <?php if( !($hideDescription === true) ): ?>
-                <p><?php echo \Core::make('helper/text')->shorten(Page::getCurrentPage()->getCollectionDescription(), 90); ?></p>
-                <?php endif; ?>
-                <?php if( $showDateAndTags === true ): ?>
-                    <div class="date-and-tags">
-                        <span class="date">Published <strong><?php echo \Core::make('helper/date')->formatDate(Page::getCurrentPage()->getCollectionDatePublic(), true); ?></strong> in </span>
-                        <?php
+                <div class="page-title-inner">
+                    <h1><?php echo Page::getCurrentPage()->getCollectionName(); ?></h1>
+                    <?php if( !($hideDescription === true) ): ?>
+                        <p><?php echo \Core::make('helper/text')->shorten(Page::getCurrentPage()->getCollectionDescription(), 90); ?></p>
+                    <?php endif; ?>
+                    <?php if( $showDateAndTags === true ): ?>
+                        <div class="date-and-tags">
+                            <span class="date">Published <strong><?php echo \Core::make('helper/date')->formatDate(Page::getCurrentPage()->getCollectionDatePublic(), true); ?></strong> in </span>
+                            <?php
                             $bt = BlockType::getByHandle('tags');
                             $bt->controller->displayMode = 'page';
                             $bt->controller->targetCID = Page::getByPath('/news')->getCollectionID();
                             $bt->render('templates/custom');
-                        ?>
-                    </div>
-                <?php endif; ?>
+                            ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
         <?php endif; ?>
     </div>

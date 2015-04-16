@@ -4,12 +4,14 @@
     use Loader;
     use PageList;
     use PageType;
+    use CollectionAttributeKey;
 
     class News extends \Concrete\Package\Lineal\Controller\LinealPageController {
 
-        const PAGINATION    = 15,
-              COLUMN_COUNT  = 3;
+        const PAGINATION = 10;
 
+        /** @var $_pageListObj \Concrete\Core\Page\PageList */
+        protected $_pageListObj;
         protected $_includeThemeAssets = true;
 
         public function on_start(){
@@ -19,32 +21,28 @@
 
         public function view(){
             parent::view();
-            $this->set('chunkedList', $this->chunkResults());
+            $this->set('pageResults', $this->pageListResults());
             $this->set('textHelper', Loader::helper('text'));
             $this->set('dateHelper', \Core::make('helper/date'));
             $this->set('navHelper', Loader::helper('navigation'));
         }
 
 
-        protected function chunkResults(){
-            $results    = $this->pageListResults();
-            $chunked    = array();
-            $iterator   = 0;
-            if( !empty($results) ){
-                foreach($results AS $pageObj){
-                    if( !is_array($chunked[$iterator]) ){
-                        $chunked[$iterator] = array();
-                    }
-                    array_push($chunked[$iterator], $pageObj);
-                    $iterator = ($iterator < (self::COLUMN_COUNT-1)) ? $iterator + 1 : 0;
-                }
-            }
-            return $chunked;
-        }
-
-
+        /**
+         * PAGES NEED TO BE INDEXED FOR SEARCH TO WORK
+         * @todo: auto-index pages on create?
+         * @param null $tag
+         */
         public function tag( $tag = null ){
-            $this->pageListObj()->filterByTags(h($tag));
+            $tagTextValue = Loader::helper('text')->unhandle($tag);
+            $attrKeyObj   = CollectionAttributeKey::getByHandle('tags');
+            $optionObj    = \Concrete\Attribute\Select\Option::getByValue($tagTextValue, $attrKeyObj);
+            if( is_object($optionObj) ){
+                $this->pageListObj()->filterByAttribute('tags', $optionObj);
+                $this->set('selectedTag', $optionObj);
+            }else{
+                $this->set('tagNotFound', true);
+            }
             $this->view();
         }
 
@@ -67,13 +65,13 @@
 
         /**
          * Setup the page list object
-         * @return PageList
+         * @return \Concrete\Core\Page\PageList
          */
         protected function pageListObj(){
             if( $this->_pageListObj === null ){
                 $this->_pageListObj = new PageList();
                 $this->_pageListObj->disableAutomaticSorting();
-                $this->_pageListObj->sortByPublicDate();
+                $this->_pageListObj->sortByPublicDateDescending();
                 $this->_pageListObj->filterByPath( $this->getPageObject()->getCollectionPath() );
                 $this->_pageListObj->filterByPageTypeID( PageType::getByHandle('news')->getPageTypeID() );
                 $this->_pageListObj->setItemsPerPage(self::PAGINATION);

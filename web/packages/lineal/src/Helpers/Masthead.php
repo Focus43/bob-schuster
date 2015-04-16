@@ -26,28 +26,32 @@
          * @return array
          */
         public function getSlideshowImages(){
-            /** @var $fileSetObj \Concrete\Core\File\Set\Set */
-            $fileSetObj = FileSet::getByName(PackageController::FILESET_HOMEPAGE_SLIDESHOW);
-            if( $fileSetObj instanceof \Concrete\Core\File\Set\Set ){
-                $resizedSet  = array();
-                $imagesInSet = $fileSetObj->getFiles();
-                $imageHelper = \Core::make('helper/image'); /** @var $imageHelper ImageHelper */
-                $imageHelper->setJpegCompression(PackageController::FULLSCREEN_IMG_COMPRESSION);
-                if( ! empty($imagesInSet) ){
-                    foreach($imagesInSet AS $fileObj){ /** @var $fileObj File */
-                        if( $fileObj instanceof File ){
-                            array_push($resizedSet, (object)array(
-                                'path'  => $fileObj->getRelativePath(),
-                                'descr' => $fileObj->getDescription()
-                                //'thumbnailObj'  => $imageHelper->getThumbnail($fileObj, PackageController::FULLSCREEN_IMG_WIDTH, PackageController::FULLSCREEN_IMG_HEIGHT),
-                                //'fileObj'       => $fileObj
-                            ));
+            try {
+                /** @var $fileSetObj \Concrete\Core\File\Set\Set */
+                $fileSetObj = FileSet::getByName(PackageController::FILESET_HOMEPAGE_SLIDESHOW);
+                if( $fileSetObj instanceof \Concrete\Core\File\Set\Set ){
+                    $resizedSet  = array();
+                    $imagesInSet = $fileSetObj->getFiles();
+                    $imageHelper = \Core::make('helper/image'); /** @var $imageHelper ImageHelper */
+                    $imageHelper->setJpegCompression(PackageController::FULLSCREEN_IMG_COMPRESSION);
+                    if( ! empty($imagesInSet) ){
+                        foreach($imagesInSet AS $fileObj){ /** @var $fileObj File */
+                            if( $fileObj instanceof File ){
+                                array_push($resizedSet, (object)array(
+                                    'path'  => $fileObj->getRelativePath(),
+                                    'descr' => $fileObj->getDescription()
+                                    //'thumbnailObj'  => $imageHelper->getThumbnail($fileObj, PackageController::FULLSCREEN_IMG_WIDTH, PackageController::FULLSCREEN_IMG_HEIGHT),
+                                    //'fileObj'       => $fileObj
+                                ));
+                            }
                         }
                     }
+                    return $resizedSet;
                 }
-                return $resizedSet;
+                return array();
+            }catch(\Exception $e){
+                return array();
             }
-            return array();
         }
 
 
@@ -60,19 +64,23 @@
          * @return string
          */
         public function getSingleImageSrc(){
-            $fileObj = $this->pageObj->getAttribute('header_background');
-            if( $fileObj instanceof File && $fileObj->getFileID() >= 1 ){
-                return \Core::make('helper/image')->setJpegCompression(PackageController::FULLSCREEN_IMG_COMPRESSION)->getThumbnail($fileObj, PackageController::FULLSCREEN_IMG_WIDTH, PackageController::FULLSCREEN_IMG_HEIGHT)->src;
-            }
-
-            /** @var $fileSetObj \Concrete\Core\File\Set\Set */
-            $fileSetObj = FileSet::getByName(PackageController::FILESET_HEADER_BACKGROUNDS);
-            $filesInSet = $fileSetObj->getFiles();
-            if( ! empty($filesInSet) ){
-                $fileObj = $filesInSet[array_rand($filesInSet, 1)];
-                if( $fileObj instanceof File ){
+            try {
+                $fileObj = $this->pageObj->getAttribute('header_background');
+                if( $fileObj instanceof File && $fileObj->getFileID() >= 1 ){
                     return \Core::make('helper/image')->setJpegCompression(PackageController::FULLSCREEN_IMG_COMPRESSION)->getThumbnail($fileObj, PackageController::FULLSCREEN_IMG_WIDTH, PackageController::FULLSCREEN_IMG_HEIGHT)->src;
                 }
+
+                /** @var $fileSetObj \Concrete\Core\File\Set\Set */
+                $fileSetObj = FileSet::getByName(PackageController::FILESET_HEADER_BACKGROUNDS);
+                $filesInSet = $fileSetObj->getFiles();
+                if( ! empty($filesInSet) ){
+                    $fileObj = $filesInSet[array_rand($filesInSet, 1)];
+                    if( $fileObj instanceof File ){
+                        return \Core::make('helper/image')->setJpegCompression(PackageController::FULLSCREEN_IMG_COMPRESSION)->getThumbnail($fileObj, PackageController::FULLSCREEN_IMG_WIDTH, PackageController::FULLSCREEN_IMG_HEIGHT)->src;
+                    }
+                }
+            }catch(\Exception $e){
+                return '';
             }
         }
 

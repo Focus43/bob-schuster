@@ -14,12 +14,34 @@
 
         <main>
             <section>
-                <?php
-                    /** @var $a \Concrete\Core\Area\Area */
-                    $a = new Area(Concrete\Package\Lineal\Controller::AREA_MAIN);
-                    $a->enableGridContainer();
-                    $a->display($c);
-                ?>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-9">
+<!--                            --><?php
+//                                $currentPageObj = Page::getCurrentPage();
+//                                echo '<h1>'.$currentPageObj->getCollectionName().'</h1>';
+//                            ?>
+<!--                            <div class="date-and-tags">-->
+<!--                                <span class="date">Published <strong>--><?php //echo \Core::make('helper/date')->formatDate(Page::getCurrentPage()->getCollectionDatePublic(), true); ?><!--</strong> in </span>-->
+<!--                                --><?php
+//                                    $bt = BlockType::getByHandle('tags');
+//                                    $bt->controller->displayMode = 'page';
+//                                    $bt->controller->targetCID = Page::getByPath('/news')->getCollectionID();
+//                                    $bt->render('templates/custom');
+//                                ?>
+<!--                            </div>-->
+
+
+                            <?php    /** @var $a \Concrete\Core\Area\Area */
+                                $a = new Area(Concrete\Package\Lineal\Controller::AREA_MAIN);
+                                $a->display($c);
+                            ?>
+                        </div>
+                        <div class="col-sm-3">
+                            <?php Loader::packageElement('tags_list', 'lineal', array('selectedTag' => $selectedTag)); ?>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <?php $this->inc('elements/footer.php'); ?>

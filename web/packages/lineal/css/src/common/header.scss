@@ -76,7 +76,9 @@ $menu-hover-bg:     rgba(#fff, 0.95);
 
     .schuster-logo {padding:1rem;}
 
-    .page-title {text-align:center;padding:7rem 3rem;font-size:1.7rem;color:$gray-lighter;background:$palette-color-4;background-size:cover;background-position:50% 25%;
+    .page-title {position:relative;text-align:center;padding:9rem 3rem 8rem;font-size:1.7rem;color:$gray-lighter;background:$palette-color-4;background-size:cover;background-position:50% 25%;
+      &::before {content:'';background:rgba(60,60,60,0.35);position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;}
+      .page-title-inner {position:relative;margin:0 auto;max-width:978px;z-index:1;}
       h1 {font-size:180%;text-transform:uppercase;}
       p {margin-bottom:0;}
     }

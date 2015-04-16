@@ -28,6 +28,7 @@
         const FILESET_HOMEPAGE_SLIDESHOW        = 'Homepage Slideshow';
         const FILESET_HEADER_BACKGROUNDS        = 'Header Backgrounds';
         const ATTR_COLLECTION_HEADER_BACKGROUND = 'header_background';
+        const ATTR_COLLECTION_HEADER_TITLE      = 'header_title';
         const FULLSCREEN_IMG_WIDTH              = 1536;
         const FULLSCREEN_IMG_HEIGHT             = 864;
         const FULLSCREEN_IMG_COMPRESSION        = 92;
@@ -39,7 +40,7 @@
 
         protected $pkgHandle 			= self::PACKAGE_HANDLE;
         protected $appVersionRequired 	= '5.7.3.2';
-        protected $pkgVersion 			= '0.16';
+        protected $pkgVersion 			= '0.18';
 
 
         /**
@@ -165,6 +166,13 @@
                 CollectionAttributeKey::add($this->attributeType('image_file'), array(
                     'akHandle'  => self::ATTR_COLLECTION_HEADER_BACKGROUND,
                     'akName'    => 'Header Background'
+                ), $this->packageObject());
+            }
+
+            if( !is_object(CollectionAttributeKey::getByHandle(self::ATTR_COLLECTION_HEADER_TITLE)) ){
+                CollectionAttributeKey::add($this->attributeType('boolean'), array(
+                    'akHandle'  => self::ATTR_COLLECTION_HEADER_TITLE,
+                    'akName'    => 'Hide Standard Heading Title'
                 ), $this->packageObject());
             }
 

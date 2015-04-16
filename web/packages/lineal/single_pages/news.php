@@ -1,26 +1,39 @@
-<div class="container-fluid">
+<div class="container spaced">
     <div class="row">
-        <?php foreach($chunkedList AS $list): ?>
-            <div class="col-sm-<?php echo floor(12 / Concrete\Package\Lineal\Controller\SinglePage\News::COLUMN_COUNT); ?>">
-                <?php foreach($list AS $page){
-                    $title = $textHelper->entities($page->getCollectionName());
-                    $descr = $textHelper->wordSafeShortText($page->getCollectionDescription(), 255);
-                    $descr = $textHelper->entities($descr);
-                    $date = $dateHelper->formatDate($page->getCollectionDatePublic(), false);
-                    $url = $navHelper->getLinkToCollection($page);
+        <div class="col-sm-9">
+            <?php if( is_object($selectedTag) ): ?>
+                <div class="selected-tag">
+                    <h5>Viewing articles in <i><?php echo $selectedTag; ?></i></h5>
+                </div>
+            <?php endif; ?>
+            <div class="post-results">
+                <?php foreach($pageResults AS $page): /** @var $page \Concrete\Core\Page\Page */
+                    $title      = $textHelper->entities($page->getCollectionName());
+                    $descr      = $textHelper->wordSafeShortText($page->getCollectionDescription(), 255);
+                    $descr      = $textHelper->entities($descr);
+                    $dateObj    = new \DateTime($page->getCollectionDatePublic());
+                    $url        = $navHelper->getLinkToCollection($page);
+                    $tags       = $page->getAttribute('tags');
                     ?>
                     <a class="news-post" href="<?php echo $url; ?>">
-                        <h4><?php echo $title; ?></h4>
-                        <span class="date"><?php echo $date; ?></span>
+                        <h3><?php echo $title; ?></h3>
+                        <span date>
+                            <b month-year><?php echo $dateObj->format('M'); ?> <?php echo $dateObj->format('Y'); ?></b>
+                            <b day><?php echo $dateObj->format('d'); ?></b>
+                        </span>
                         <p class="descr"><?php echo $descr; ?></p>
+                        <label tags>In
+                            <?php if(!empty($tags)): foreach($tags AS $optTag): ?>
+                                <span><?php echo $optTag; ?></span>
+                            <?php endforeach; else: echo '<i>None</i>'; endif; ?>
+                        </label>
                     </a>
-                <?php } ?>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
             <?php echo $paginationView; ?>
+        </div>
+        <div class="col-sm-3">
+            <?php Loader::packageElement('tags_list', 'lineal', array('selectedTag' => $selectedTag)); ?>
         </div>
     </div>
 </div>

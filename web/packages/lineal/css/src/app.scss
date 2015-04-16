@@ -46,6 +46,10 @@ h1,h2,h3 {&:nth-child(1){margin-top:0;}}
   }
 }
 
+.palette-2 {
+  a {color:$palette-color-5;}
+}
+
 #c-level-1 {height:100%;
   // Animate-able
   nav, header [wrapper], main {@include transform(translateX(0));@include transition(all $sidebar-animate-time linear);}
@@ -99,6 +103,14 @@ h1,h2,h3 {&:nth-child(1){margin-top:0;}}
 
 // CMS Edit mode
 .cms-edit-mode {
+  &:not(.touch){
+    #c-level-1 {height:100%;
+      // Animate-able
+      nav, header [wrapper], main {@include transform(none);@include transition(none);}
+    }
+  }
+
+
   section {overflow:visible;
     [data-area-handle*="Main"]:not([data-area-handle*=":"]) {margin:-$grid-gutter-width 0;padding:$grid-gutter-width 0;}
     .ccm-block-edit-layout {padding:($grid-gutter-width/4);
