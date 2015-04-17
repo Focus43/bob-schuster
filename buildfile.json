@@ -2,7 +2,7 @@
 	"project": {
 		"name": "BobSchuster",
 		"domains": [
-			"bobschuster.com"
+			"bobschuster.com", "mas.com"
 		]
 	},
 	"storage": {
