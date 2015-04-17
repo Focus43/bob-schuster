@@ -1,8 +1,16 @@
 {
 	"project": {
-		"name": "BobSchuster2",
+		"name": "BobSchuster",
 		"domains": [
 			"bobschuster.com"
 		]
+	},
+	"storage": {
+		"dirs": [
+			"web/application/files"
+		]
+	},
+	"composer": {
+		"workingDir": "web/concrete"
 	}
 }
