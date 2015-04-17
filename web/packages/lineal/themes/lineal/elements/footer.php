@@ -10,18 +10,13 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="box-pad border-3">
-                    <h4>Recognition</h4>
+                    <h4>Professional Honors</h4>
                     <ul class="list-unstyled memberships">
-                        <li><a>MartinDale Hubbel</a></li>
-                        <li><a>SuperLawyers</a></li>
-                        <li><a>Best Lawyers</a></li>
-                        <li><a>National Top 100 Trial Lawyers</a></li>
+                        <li><a href="/professional-honors">MartinDale-Hubbell</a></li>
+                        <li><a href="/professional-honors">SuperLawyers</a></li>
+                        <li><a href="/professional-honors">Best Lawyers</a></li>
+                        <li><a href="/professional-honors">National Top 100 Trial Lawyers</a></li>
                     </ul>
-                    <!--<div class="badges">
-                        <img src="<?php echo LINEAL_IMAGE_PATH; ?>logos/ali_aba.png" alt="" />
-                        <img src="<?php echo LINEAL_IMAGE_PATH; ?>logos/super_lawyers.png" alt="" />
-                        <img src="<?php echo LINEAL_IMAGE_PATH; ?>logos/best_law_firms_us_news.png" alt="" />
-                    </div>-->
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
@@ -46,12 +41,15 @@
             <div class="col-sm-6 col-md-3">
                 <div class="box-pad border-4">
                     <h4>Get In Touch</h4>
-                    <address>
-                        PO Box 13610, Suite 204<br>
-                        250 Veronica Lane<br>
-                        Jackson, WY 83002
-                    </address>
-                    <p><strong>Tel:</strong> (307) 732-7800<br><strong>Em:</strong> info@bobschuster.com</p>
+                    <a style="display:block;color:#cad2c5;" href="/contact">
+                        <address>
+                            250 Veronica Ln<br/>
+                            Suite 204<br/>
+                            P.O. Box 13160<br>
+                            Jackson, WY 83002
+                        </address>
+                        <p><strong>Tel:</strong> (307) 732-7800<br><strong>Em:</strong> info@bobschuster.com</p>
+                    </a>
                 </div>
             </div>
         </div>
