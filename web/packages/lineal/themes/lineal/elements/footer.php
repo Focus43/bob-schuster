@@ -12,7 +12,7 @@
                 <div class="box-pad border-3">
                     <h4>Professional Honors</h4>
                     <ul class="list-unstyled memberships">
-                        <li><a href="/professional-honors">MartinDale-Hubbell</a></li>
+                        <li><a href="/professional-honors">Martindale-Hubbell</a></li>
                         <li><a href="/professional-honors">SuperLawyers</a></li>
                         <li><a href="/professional-honors">Best Lawyers</a></li>
                         <li><a href="/professional-honors">National Top 100 Trial Lawyers</a></li>
@@ -21,7 +21,7 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="box-pad border-2">
-                    <h4>Recent News</h4>
+                    <h4>Developments in the Law</h4>
                     <?php
                         $pageListObj = new \Concrete\Core\Page\PageList();
                         $pageListObj->disableAutomaticSorting();
@@ -41,15 +41,15 @@
             <div class="col-sm-6 col-md-3">
                 <div class="box-pad border-4">
                     <h4>Get In Touch</h4>
-                    <a style="display:block;color:#cad2c5;" href="/contact">
+                    <div style="display:block;">
                         <address>
-                            250 Veronica Ln<br/>
+                            250 Veronica Lane<br/>
                             Suite 204<br/>
                             P.O. Box 13160<br>
                             Jackson, WY 83002
                         </address>
-                        <p><strong>Tel:</strong> (307) 732-7800<br><strong>Em:</strong> info@bobschuster.com</p>
-                    </a>
+                        <p><strong>Telephone:</strong> (307) 732-7800<br><strong>Email:</strong> <a href="mailto:info@bobschuster.com">info@bobschuster.com</a><br/><strong>Fax:</strong> (307) 732-7801</p>
+                    </div>
                 </div>
             </div>
         </div>

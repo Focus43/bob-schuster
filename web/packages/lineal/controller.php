@@ -362,7 +362,7 @@
                 $type = new \Concrete\Core\File\Image\Thumbnail\Type\Type();
                 $type->setName('Header');
                 $type->setHandle('header');
-                $type->setWidth(1200);
+                $type->setWidth(1750);
                 $type->save();
             }
 

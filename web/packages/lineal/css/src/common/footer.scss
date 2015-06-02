@@ -1,6 +1,6 @@
 footer {text-align:center;color:#fff;font-size:0.875rem;padding:2rem 1rem;background:$palette-color-1;
   .container-fluid {max-width:$container-lg;}
-  .box-pad {border-top:3px solid transparent;
+  .box-pad {padding-left:0;padding-right:0;border-top:3px solid transparent;
     &.border-1 {border-top-color:$palette-color-1;}
     &.border-2 {border-top-color:$palette-color-2;}
     &.border-3 {border-top-color:$palette-color-3;}
@@ -11,7 +11,7 @@ footer {text-align:center;color:#fff;font-size:0.875rem;padding:2rem 1rem;backgr
     }
   }
   .schuster-logo {color:#fff;}
-  address {margin-bottom:0;}
+  address {margin-bottom:0;padding-bottom:0.5rem;}
   h4 {margin-top:0;}
   .badges img {padding:5px;max-width:90px;}
   .recent-news-item {display:block;color:$palette-color-5;
