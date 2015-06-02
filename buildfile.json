@@ -1,9 +1,7 @@
 {
 	"project": {
 		"name": "BobSchuster",
-		"domains": [
-			"bobschuster.com"
-		]
+		"domains": "bobschuster.com"
 	},
 	"storage": {
 		"dirs": [
