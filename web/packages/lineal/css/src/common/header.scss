@@ -55,7 +55,7 @@ $menu-hover-bg:     rgba(#fff, 0.95);
     .schuster-logo {padding:1rem;position:absolute;top:0;left:0;z-index:2;}
 
     [wrapper] {height:100%;position:relative;padding-top:8.5rem;}
-    [masthead] {position:relative;background:transparent url('#{$image-path}textures/lozenge2.png') repeat 50% 50%;
+    [masthead] {position:relative;background:transparent url('#{$image-path}textures/lozenge3.png') repeat 50% 50%;
       figure {margin:0;visibility:hidden;opacity:0;position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;background:no-repeat 50% 50%;background-size:cover;@include transition(all 0.5s ease);
         &.active {visibility:visible;opacity:1;}
       }

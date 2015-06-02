@@ -31,7 +31,7 @@
             <?php endif; ?>
 
         <?php else: // Default header style for all ?>
-            <div masthead data-transition-time="2500">
+            <div masthead data-transition-time="4500">
                 <?php if(!empty($headerImages)): foreach($headerImages AS $index => $fileObj){ ?>
                     <figure class="<?php echo $index === 0 ? 'active' : ''; ?>" style="background-image:url('<?php echo $fileObj->getThumbnailURL('header'); ?>');"></figure>
                 <?php } endif; ?>

@@ -5,9 +5,7 @@
 <body class="<?php echo $templateHandle; ?>">
 
     <div id="c-level-1" class="<?php echo Page::getCurrentPage()->getPageWrapperClass(); ?>">
-        <?php $this->inc('elements/header.php', array(
-            //'mastheadHelper'    => $mastheadHelper
-        )); ?>
+        <?php $this->inc('elements/header.php'); ?>
 
         <main>
             <section>
