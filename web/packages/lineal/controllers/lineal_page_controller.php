@@ -1,6 +1,7 @@
 <?php namespace Concrete\Package\Lineal\Controller {
     defined('C5_EXECUTE') or die("Access Denied.");
 
+    use Concrete\Core\Package\Package;
     use Loader;
     use PageController;
     use File;
@@ -34,7 +35,19 @@
             )));
 
             $this->set('templateHandle', sprintf('pg-%s', $this->getPageObject()->getPageTemplateHandle()));
-            $this->set('mastheadHelper', new \Concrete\Package\Lineal\Src\Helpers\Masthead($this->getPageObject()));
+
+            //$this->set('mastheadHelper', new \Concrete\Package\Lineal\Src\Helpers\Masthead($this->getPageObject()));
+            $headerImageIDs = $this->getPageObject()->getAttribute(PackageController::ATTR_COLLECTION_HEADER_IMAGES);
+            $headerImages   = array();
+            if( is_array($headerImageIDs) && !empty($headerImageIDs) ){
+                foreach($headerImageIDs AS $fileID){
+                    $fileObj = File::getByID((int) $fileID);
+                    if( is_object($fileObj) ){
+                        array_push($headerImages, $fileObj);
+                    }
+                }
+            }
+            $this->set('headerImages', $headerImages);
         }
 
 

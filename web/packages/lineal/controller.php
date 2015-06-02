@@ -29,6 +29,7 @@
         const FILESET_HEADER_BACKGROUNDS        = 'Header Backgrounds';
         const ATTR_COLLECTION_HEADER_BACKGROUND = 'header_background';
         const ATTR_COLLECTION_HEADER_TITLE      = 'header_title';
+        const ATTR_COLLECTION_HEADER_IMAGES     = 'header_images';
         const FULLSCREEN_IMG_WIDTH              = 1536;
         const FULLSCREEN_IMG_HEIGHT             = 864;
         const FULLSCREEN_IMG_COMPRESSION        = 92;
@@ -36,11 +37,9 @@
         const AREA_MAIN                         = 'Main';
         const AREA_MAIN_2                       = 'Main 2';
 
-
-
         protected $pkgHandle 			= self::PACKAGE_HANDLE;
         protected $appVersionRequired 	= '5.7.3.2';
-        protected $pkgVersion 			= '0.18';
+        protected $pkgVersion 			= '0.22';
 
 
         /**
@@ -124,7 +123,8 @@
                 ->assignPageTypes()
                 ->setupSinglePages()
                 ->setupBlockTypeSets()
-                ->setupBlocks();
+                ->setupBlocks()
+                ->setupThumbnailTypes();
         }
 
 
@@ -154,6 +154,12 @@
                 $this->attributeKeyCategory('file')->associateAttributeKeyType( $this->attributeType('page_selector') );
             }
 
+            $atMultifilePicker = $this->attributeType('multifile_selector');
+            if( !($atMultifilePicker instanceof \Concrete\Core\Attribute\Type) ){
+                \Concrete\Core\Attribute\Type::add('multifile_selector', t('Multi-file Selector'), $this->packageObject());
+                $this->attributeKeyCategory('collection')->associateAttributeKeyType( $this->attributeType('multifile_selector') );
+            }
+
             return $this;
         }
 
@@ -173,6 +179,13 @@
                 CollectionAttributeKey::add($this->attributeType('boolean'), array(
                     'akHandle'  => self::ATTR_COLLECTION_HEADER_TITLE,
                     'akName'    => 'Hide Standard Heading Title'
+                ), $this->packageObject());
+            }
+
+            if( !is_object(CollectionAttributeKey::getByHandle(self::ATTR_COLLECTION_HEADER_IMAGES)) ){
+                CollectionAttributeKey::add($this->attributeType('multifile_selector'), array(
+                    'akHandle'  => self::ATTR_COLLECTION_HEADER_IMAGES,
+                    'akName'    => 'Header Images'
                 ), $this->packageObject());
             }
 
@@ -334,6 +347,23 @@
         private function setupBlocks(){
             if(!is_object(BlockType::getByHandle('button'))) {
                 BlockType::installBlockTypeFromPackage('button', $this->packageObject());
+            }
+
+            return $this;
+        }
+
+
+        /**
+         * @return Controller
+         */
+        private function setupThumbnailTypes(){
+            $headerThumbnail = \Concrete\Core\File\Image\Thumbnail\Type\Type::getByHandle('header');
+            if( ! is_object($headerThumbnail) ){
+                $type = new \Concrete\Core\File\Image\Thumbnail\Type\Type();
+                $type->setName('Header');
+                $type->setHandle('header');
+                $type->setWidth(1200);
+                $type->save();
             }
 
             return $this;

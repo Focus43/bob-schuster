@@ -6,8 +6,8 @@
 
     <div id="c-level-1" class="<?php echo Page::getCurrentPage()->getPageWrapperClass(); ?>">
         <?php $this->inc('elements/header.php', array(
-            'masthead'          => true,
-            'mastheadHelper'    => $mastheadHelper
+            'headerClass'       => 'home',
+            'headerImages'      => $headerImages
         )); ?>
 
         <main>

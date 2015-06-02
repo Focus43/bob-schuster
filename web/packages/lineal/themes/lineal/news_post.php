@@ -6,8 +6,7 @@
 
     <div id="c-level-1" class="<?php echo Page::getCurrentPage()->getPageWrapperClass(); ?>">
         <?php $this->inc('elements/header.php', array(
-            'masthead'          => false,
-            'mastheadHelper'    => $mastheadHelper,
+            //'mastheadHelper'    => $mastheadHelper,
             'hideDescription'   => true,
             'showDateAndTags'   => true
         )); ?>

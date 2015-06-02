@@ -1,0 +1,7 @@
+[multifile-selector]{}
+[multifile-selector] ul {list-style:none;padding:0;margin:0;}
+[multifile-selector] li {position:relative;display:block;padding-left:25px;}
+[multifile-selector] [remove], [multifile-selector] [ordering] {position:absolute;top:5px;display:inline-block;padding:8px;line-height:1;}
+[multifile-selector] [remove] {right:-25px;cursor:pointer;color:#882a25;}
+[multifile-selector] [ordering] {left:-8px;cursor:move;z-index:1999;font-size:20px;}
+[multifile-selector] [add] {}
