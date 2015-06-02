@@ -48,7 +48,7 @@
                             P.O. Box 13160<br>
                             Jackson, WY 83002
                         </address>
-                        <p><strong>Telephone:</strong> (307) 732-7800<br><strong>Email:</strong> <a href="mailto:info@bobschuster.com">info@bobschuster.com</a><br/><strong>Fax:</strong> (307) 732-7801</p>
+                        <p><strong>Telephone:</strong> (307) 732-7800<br><strong>Email:</strong> <a href="mailto:info@bobschuster.com" style="color:#cad2c5;text-decoration:underline;">info@bobschuster.com</a><br/><strong>Fax:</strong> (307) 732-7801</p>
                     </div>
                 </div>
             </div>
