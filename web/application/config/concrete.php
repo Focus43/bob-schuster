@@ -36,6 +36,12 @@ return array(
     'misc'  => array(
         'seen_introduction' => true
     ),
+    'email' => array(
+        'default' => array(
+            'address' => 'hi@focus-43.com',
+            'name' => 'Focus43.com Site'
+        )
+    ),
     'mail' => array(
         'method' => 'SMTP',
         'methods' => array(
