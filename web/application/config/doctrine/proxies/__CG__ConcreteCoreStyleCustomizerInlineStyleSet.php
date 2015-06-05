@@ -748,6 +748,17 @@ class StyleSet extends \Concrete\Core\StyleCustomizer\Inline\StyleSet implements
     /**
      * {@inheritDoc}
      */
+    public function getBackgroundImageFileID()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBackgroundImageFileID', array());
+
+        return parent::getBackgroundImageFileID();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getBackgroundImageFileObject()
     {
 
@@ -765,17 +776,6 @@ class StyleSet extends \Concrete\Core\StyleCustomizer\Inline\StyleSet implements
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'save', array());
 
         return parent::save();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function import(\SimpleXMLElement $node)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'import', array($node));
-
-        return parent::import($node);
     }
 
     /**
