@@ -40,7 +40,10 @@ EOT;
 return array(
     'seo' => array(
         'url_rewriting' => true,
-        'url_rewriting_all' => true
+        'url_rewriting_all' => true,
+        'tracking' => array(
+            'code' => $trackingCode
+        )
     ),
     'permissions' => array(
         'model' => 'advanced'
@@ -55,11 +58,6 @@ return array(
     ),
     'misc'  => array(
         'seen_introduction' => true
-    ),
-    'seo' => array(
-        'tracking' => array(
-            'code' => $trackingCode
-        )
     ),
     'email' => array(
         'default' => array(
