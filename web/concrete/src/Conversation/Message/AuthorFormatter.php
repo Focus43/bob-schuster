@@ -20,11 +20,16 @@ class AuthorFormatter
     {
         $ui = $this->author->getUser();
         if (is_object($ui)) {
-            return $ui->getUserDisplayName();
+            $name = $ui->getUserDisplayName();
         } else if ($this->author->getName()) {
-            return $this->author->getName();
+            $name = $this->author->getName();
         } else {
-            return t('Anonymous');
+            $name = t('Anonymous');
+        }
+        if ($this->author->getWebsite()) {
+            return sprintf('<a href="%s">%s</a>', h($this->author->getWebsite()), h($name));
+        } else {
+            return h($name);
         }
     }
 
@@ -39,8 +44,8 @@ class AuthorFormatter
             $link = \URL::to('/dashboard/users/search', 'view', $ui->getUserID());
             $name = $ui->getUserDisplayName();
         } else if ($this->author->getName()) {
-            $link = 'mailto:' . $this->author->getEmail();
-            $name = $this->author->getName();
+            $link = 'mailto:' . h($this->author->getEmail());
+            $name = h($this->author->getName());
         } else {
             return t('Anonymous');
         }
