@@ -36,9 +36,9 @@ return array(
     'misc'  => array(
         'seen_introduction' => true
     ),
-    'debug' => array(
-        'detail' => 'debug'
-    ),
+//    'debug' => array(
+//        'detail' => 'debug'
+//    ),
     'cache' => array(
         'pages' => true,
         'levels' => array(
