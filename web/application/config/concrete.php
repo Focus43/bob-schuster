@@ -69,11 +69,11 @@ return array(
         'method' => 'SMTP',
         'methods' => array(
             'smtp' => array(
-                'server'        => 'smtp.postmarkapp.com',
-                'port'          => '25',
-                'username'      => 'd9c87de5-5d44-4e29-80d2-d43e79bca0a2',
-                'password'      => 'd9c87de5-5d44-4e29-80d2-d43e79bca0a2',
-                'encryption'    => ''
+                'server'        => 'smtp.mandrillapp.com',
+                'port'          => '',
+                'username'      => 'arik@focus-43.com',
+                'password'      => 'rYyTh8eSRD7KHIHvEuKWpg',
+                'encryption'    => 'TLS'
             )
         )
     ),
