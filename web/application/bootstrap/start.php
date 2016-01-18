@@ -21,7 +21,7 @@ $app->detectEnvironment(
             'vagrant-ubuntu-vivid-64'
         ),
         'production' => array(
-            'live.site'
+            'bobschuster.pc7j-2hvd.accessdomain.com'
         )
     ));
 

@@ -113,7 +113,15 @@ foreach ($navItems as $ni) {
 <ul class="majority">
     <?php foreach($navItems AS $ni): ?>
         <li class="<?php echo $ni->classes; ?>">
-            <a href="<?php echo $ni->url; ?>" target="<?php echo $ni->target; ?>" class="<?php echo $ni->classes; ?>"><?php echo $ni->name; ?></a>
+            <?php
+            // remove cat index pages from main nav
+                if($ni->hasSubmenu){
+                    $link = '#';
+                } else {
+                    $link = $ni->url;
+                }
+            ?>
+            <a href="<?php echo $link ?>" target="<?php echo $ni->target; ?>" class="<?php echo $ni->classes; ?>"><?php echo $ni->name; ?></a>
             <?php if($ni->hasSubmenu){ ?>
                 <ul class="sub">
             <?php }else{ ?>
