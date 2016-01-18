@@ -18,7 +18,7 @@ $app = new Application();
 $app->detectEnvironment(
     array(
         'local' => array(
-            'hostname'
+            'vagrant-ubuntu-vivid-64'
         ),
         'production' => array(
             'live.site'

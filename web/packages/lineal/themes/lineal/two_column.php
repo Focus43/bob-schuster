@@ -32,7 +32,12 @@
             <?php $this->inc('elements/footer.php'); ?>
         </main>
     </div>
-
+<?php
+$env = Config::getEnvironment();
+echo $env;
+echo '<br>';
+echo gethostname();
+?>
 <?php Loader::element('footer_required'); ?>
 </body>
 </html>
