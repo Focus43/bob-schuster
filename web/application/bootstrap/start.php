@@ -18,10 +18,10 @@ $app = new Application();
 $app->detectEnvironment(
     array(
         'local' => array(
-            'hostname'
+            'local'
         ),
         'production' => array(
-            'live.site'
+            'bobschuster.pc7j-2hvd.accessdomain.com'
         )
     ));
 
