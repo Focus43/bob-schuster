@@ -76,21 +76,21 @@ return array(
                 'encryption'    => 'TLS'
             )
         )
-    ),
-    'cache' => array(
-        'pages' => true,
-        'levels' => array(
-            'expensive' => array(
-                'drivers' => array(
-                    $ephemeralStashCacheDriver,
-                    (defined('EPHEMERAL_ONLY_DURING_INSTALL') ? $ephemeralStashCacheDriver : $redisStashCacheDriver)
-                )
-            ),
-            'object' => array(
-                'drivers' => array(
-                    $ephemeralStashCacheDriver
-                )
-            )
-        )
     )
+//    ,'cache' => array(
+//        'pages' => true,
+//        'levels' => array(
+//            'expensive' => array(
+//                'drivers' => array(
+//                    $ephemeralStashCacheDriver,
+//                    (defined('EPHEMERAL_ONLY_DURING_INSTALL') ? $ephemeralStashCacheDriver : $redisStashCacheDriver)
+//                )
+//            ),
+//            'object' => array(
+//                'drivers' => array(
+//                    $ephemeralStashCacheDriver
+//                )
+//            )
+//        )
+//    )
 );

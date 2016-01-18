@@ -11,7 +11,7 @@
   vars:
     install_apache: true
     install_mysql: true
-    install_redis: true
+    install_redis: false
     install_php: true
     install_nodejs: true
     install_ruby: true
@@ -117,8 +117,8 @@
       php_install_xdebug: false
       php_install_phpunit: false
       php_install_composer: false
-      php_install_redis_ext: true
-      php_sessions_use_redis: true
+      php_install_redis_ext: false
+      php_sessions_use_redis: false
       when: install_php == true
 
     ######################################################################
