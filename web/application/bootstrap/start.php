@@ -20,6 +20,9 @@ $app->detectEnvironment(
         'local' => array(
             'vagrant-ubuntu-vivid-64'
         ),
+        'stage' => array(
+            'staging.bobschuster.com'
+        ),
         'production' => array(
             'bobschuster.com'
         )
