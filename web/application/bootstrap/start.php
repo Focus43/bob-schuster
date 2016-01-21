@@ -21,12 +21,13 @@ $app->detectEnvironment(
             'vagrant-ubuntu-vivid-64'
         ),
         'stage' => array(
-            'staging.bobschuster.com'
+            'stage01.focusfortythree.com'
         ),
         'production' => array(
-            'bobschuster.com'
+            'prod01.focusfortythree.com'
         )
-    ));
+    )
+);
 
 /**
  * Override Concrete5's config persistence method.
