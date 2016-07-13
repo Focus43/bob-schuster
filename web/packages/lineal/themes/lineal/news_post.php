@@ -43,6 +43,13 @@
             </section>
 
             <?php $this->inc('elements/footer.php'); ?>
+            <script type="application/ld+json">
+                <?php 
+                    include('elements/json_id.php');
+                    echo json_encode($payload);
+                ?>
+
+            </script>
         </main>
     </div>
 
